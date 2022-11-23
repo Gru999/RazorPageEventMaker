@@ -74,7 +74,8 @@
         }
 
         public void RemoveEvent(int id) {
-            events.Remove();
+            Event deleteEvent = GetEvent(id);
+            events.Remove(deleteEvent);
         }
 
         public List<Event> GetAllEvents() {
@@ -94,6 +95,16 @@
                 ev.Id = 1;
             }
             events.Add(ev);
+        }
+
+        public List<Event> FilterEvents(string filter) {
+            List<Event> filterList = new List<Event>();
+            foreach (var item in events) {
+                if (item.Name.Contains(filter) || item.Description.Contains(filter) || item.City.Contains(filter)) {
+                    filterList.Add(item);
+                }
+            }
+            return filterList;
         }
     }
 }
