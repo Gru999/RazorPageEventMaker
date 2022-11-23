@@ -1,0 +1,28 @@
+﻿@page
+@using RazorPageEventMaker.Models;
+@model RazorPageEventMaker.Pages.Hotels.IndexModel
+@{
+    ViewData["Title"] = "Hotel Oversigt";
+}
+<h1>List of Hotels</h1>
+<p>Number of Hotels: @Model.Hotels.Count</p>
+<p>Current date: @DateTime.Now.ToShortDateString()</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Hotel item in Model.Hotels) {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Address</td>
+                <td><a asp-page="EditHotel" asp-route-id="@item.Id">Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
