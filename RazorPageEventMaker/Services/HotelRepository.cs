@@ -8,7 +8,7 @@ namespace RazorPageEventMaker.Models
     public class HotelRepository : IHotelRepository
     {
 
-        private List<Hotel> _hotels { get; }
+        private List<Hotel> _hotels;
 
         public HotelRepository()
         {
@@ -45,7 +45,7 @@ namespace RazorPageEventMaker.Models
 
         public Hotel GetHotel(int id)
         {
-            foreach (var v in GetAllHotel())
+            foreach (Hotel v in _hotels)
             {
                 if (v.Id == id)
                 {
