@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RazorPageEventMaker.Models
-{
+namespace RazorPageEventMaker.Models {
     public class Event {
         [Required]
         [Range(typeof(int), "0", "50", ErrorMessage = "Id er uden for intervallet")]
@@ -21,13 +20,11 @@ namespace RazorPageEventMaker.Models
         public override bool Equals(object? obj) {
             if (obj == null) {
                 return false;
-            }
-            else { 
+            } else { 
                 Event other = obj as Event;
                 if (other.Id == Id) {
                     return true;
-                }
-                else {
+                } else {
                     return false;
                 }
             }
