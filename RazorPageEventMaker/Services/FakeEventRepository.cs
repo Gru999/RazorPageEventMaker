@@ -1,7 +1,9 @@
-﻿namespace RazorPageEventMaker.Models {
-    public class FakeEventRepository {
+﻿using RazorPageEventMaker.Interfaces;
+
+namespace RazorPageEventMaker.Models {
+    public class FakeEventRepository : IEventRepository{
         private List<Event> events { get; }
-        private static FakeEventRepository _instance;
+        //private static FakeEventRepository _instance;
         private FakeEventRepository() {
             events = new List<Event>();
             events.Add(new Event() {
@@ -41,14 +43,14 @@
             });
         }
 
-        public static FakeEventRepository Instance {
-            get {
-                if (_instance == null) {
-                    _instance = new FakeEventRepository();
-                }
-                return _instance;
-            }
-        }
+        //public static FakeEventRepository Instance {
+        //    get {
+        //        if (_instance == null) {
+        //            _instance = new FakeEventRepository();
+        //        }
+        //        return _instance;
+        //    }
+        //}
 
         public Event GetEvent(int id) {
             foreach (var v in GetAllEvents()) {
@@ -73,7 +75,7 @@
             }
         }
 
-        public void RemoveEvent(int id) {
+        public void DeleteEvent(int id) {
             Event deleteEvent = GetEvent(id);
             events.Remove(deleteEvent);
         }
@@ -97,7 +99,7 @@
             events.Add(ev);
         }
 
-        public List<Event> FilterEvents(string filter) {
+        public List<Event> FilterEvent(string filter) {
             List<Event> filterList = new List<Event>();
             foreach (var item in events) {
                 if (item.Name.Contains(filter) || item.Description.Contains(filter) || item.City.Contains(filter)) {

@@ -1,12 +1,23 @@
 ﻿@page
 @model RazorPageEventMaker.Pages.Events.IndexModel
+@using RazorPageEventMaker.Models
+@using RazorPageEventMaker.Interfaces
+@inject IEventRepository repo
 @{
     ViewData["Title"] = "Event Oversigt";
 }
 
 <h1>List of events</h1>
+
+<form method="post">
+    <p>
+        Search: <input type="text" asp-for="@Model.FilterCriteria"/>
+        <input type="submit" value="Search"/>
+    </p>
+</form>
 <p>
     <a asp-page="CreateEvent">Create New Event</a>
+    <p>Number of events @repo.GetAllEvents().Count</p>
 </p>
 <table class="table">
     <thead>
@@ -26,7 +37,7 @@
             <td>@item.Description</td>
             <td>@item.City</td>
             <td>@item.DateTime</td>
-            <td><a asp-page="EditEvent" asp-route-id="@item.Id">Edit</a></td
+            <td><a asp-page="EditEvent" asp-route-id="@item.Id">Edit</a></td>
             <td><a asp-page="DeleteEvent" asp-route-id="@item.Id">Delete</a></td>
         </tr>
         }

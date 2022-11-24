@@ -12,5 +12,9 @@ namespace RazorPageEventMaker.Models {
             Name = name;
             Address = address;
         }
+        public Hotel()
+        {
+
+        }
     }
 }

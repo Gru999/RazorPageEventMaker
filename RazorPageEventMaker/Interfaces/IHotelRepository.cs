@@ -6,5 +6,6 @@ namespace RazorPageEventMaker.Interfaces {
         Hotel GetHotel(int id);
         void AddHotel(Hotel ho);
         void UpdateHotel(Hotel ho);
+        void DeleteHotel(int id);
     }
 }

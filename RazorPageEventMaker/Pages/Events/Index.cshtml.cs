@@ -5,20 +5,21 @@ using RazorPageEventMaker.Models;
 
 namespace RazorPageEventMaker.Pages.Events {
     public class IndexModel : PageModel {
-        private IEventRepository repo;
+        private IEventRepository _repo;
         public string FilterCriteria { get; set; }
         public List<Event> Events { get; private set; }
         public IndexModel(IEventRepository fakeEventRepository) { 
-            repo = fakeEventRepository;
+            _repo = fakeEventRepository;
         }
         public void OnGet() {
-            Events = repo.GetAllEvents();
+            Events = _repo.GetAllEvents();
         }
         public void OnPost() {
-            if (FilterCriteria != null)
-                Events = repo.FilterEvent(FilterCriteria);
-            else
-                Events = repo.GetAllEvents();
+            if (FilterCriteria != null) {
+                Events = _repo.FilterEvent(FilterCriteria);
+            } else {
+                Events = _repo.GetAllEvents();
+            }
         }
     }
 }

@@ -1,14 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RazorPageEventMaker.Interfaces;
 using RazorPageEventMaker.Models;
 
 namespace RazorPageEventMaker.Pages.Events {
     public class CreateEventModel : PageModel {
-        private FakeEventRepository repo;
+        private IEventRepository _repo;
         [BindProperty]
         public Event Event { get; set; }
-        public CreateEventModel() { 
-            repo = FakeEventRepository.Instance;
+        public CreateEventModel(IEventRepository fakeEventRepository)
+        {
+            _repo = fakeEventRepository;
         }
         public IActionResult OnGet() {
             return Page();
@@ -17,7 +19,7 @@ namespace RazorPageEventMaker.Pages.Events {
             if (!ModelState.IsValid) {
                 return Page();
             }
-            repo.AddEvent(Event);
+            _repo.AddEvent(Event);
             return RedirectToPage("Index");
         }
     }

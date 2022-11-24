@@ -1,0 +1,23 @@
+[
+  {
+    "Id": 1,
+    "Name": "Roskilde Festival",
+    "Description": "A lot of music ",
+    "City": "Roskilde",
+    "DateTime": "2021-03-22T00:00:00"
+  },
+  {
+    "Id": 2,
+    "Name": "CPH Marathon",
+    "Description": "Runners from other countries",
+    "City": "Copenhagen",
+    "DateTime": "2020-10-25T08:55:00"
+  },
+  {
+    "Id": 4,
+    "Name": "Skak",
+    "Description": "Turnering",
+    "City": "Bornholm",
+    "DateTime": "2022-11-30T09:09:00"
+  }
+]

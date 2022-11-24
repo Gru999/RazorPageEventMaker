@@ -4,7 +4,7 @@ namespace RazorPageEventMaker.Models
 {
     public class Event {
         [Required]
-        [Range(typeof(int), "1", "50", ErrorMessage = "Id er uden for intervallet")]
+        [Range(typeof(int), "0", "50", ErrorMessage = "Id er uden for intervallet")]
         public int Id { get; set; }
         [Display(Name = "Event Name")]
         [Required(ErrorMessage = "Name of the Event is required"), MaxLength(30)]
@@ -18,5 +18,19 @@ namespace RazorPageEventMaker.Models
         ErrorMessage = "Value for {0} must be between {1} and {2}")]
         public DateTime DateTime { get; set; }
 
+        public override bool Equals(object? obj) {
+            if (obj == null) {
+                return false;
+            }
+            else { 
+                Event other = obj as Event;
+                if (other.Id == Id) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+        }
     }
 }

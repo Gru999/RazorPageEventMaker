@@ -6,11 +6,11 @@ using RazorPageEventMaker.Models;
 namespace RazorPageEventMaker.Pages.Events {
     public class DeleteEventModel : PageModel {
         private IEventRepository _repo;
-
         [BindProperty]
         public Event Event { get; set; }
-        public DeleteEventModel(IEventRepository fakeRepo) {
-            _repo = fakeRepo;
+        public DeleteEventModel(IEventRepository fakeEventRepository)
+        {
+            _repo = fakeEventRepository;
         }
         public void OnGet(int id) {
             Event = _repo.GetEvent(id);
