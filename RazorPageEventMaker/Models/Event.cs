@@ -16,6 +16,7 @@ namespace RazorPageEventMaker.Models {
         [Range(typeof(DateTime), "11/11/2022", "11/11/2023",
         ErrorMessage = "Value for {0} must be between {1} and {2}")]
         public DateTime DateTime { get; set; }
+        public string CountryCode { get; set; }
 
         public override bool Equals(object? obj) {
             if (obj == null) {

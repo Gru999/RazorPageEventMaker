@@ -29,17 +29,27 @@ namespace RazorPageEventMaker.Services {
             JsonFileWriter.WritetoJson(events, JsonFileName);
         }
 
-        public List<Event> FilterEvent(string filter)
-        {
+        public List<Event> FilterEvent(string filter) {
             List<Event> filterList = new List<Event>();
-            foreach (var ev in GetAllEvents())
-            {
-                if (ev.Name.Contains(filter) || ev.Description.Contains(filter) || ev.City.Contains(filter))
-                {
+            foreach (var ev in GetAllEvents()) {
+                if (ev.Name.Contains(filter) || ev.Description.Contains(filter) || ev.City.Contains(filter)) {
                     filterList.Add(ev);
                 }
             }
             return filterList;
+        }
+
+        public List<Event> GetAllEventsByCode(string code) {
+            List<Event> conEvents = new List<Event>();
+            List<Event> events = GetAllEvents();
+            foreach (var evt in events)
+            {
+                if (evt.CountryCode.Equals(code))
+                {
+                    conEvents.Add(evt);
+                }
+            }
+            return conEvents;
         }
 
         public List<Event> GetAllEvents()

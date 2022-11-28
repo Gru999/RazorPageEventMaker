@@ -1,0 +1,17 @@
+﻿@page
+@model RazorPageEventMaker.Pages.Countries.DeleteCountryModel
+@{
+    ViewData["Title"] = "Delete Country";
+}
+
+<h1>Delete country</h1>
+<p>
+    <h2>Do you wanna delete this event?</h2>
+    <h3>Code @Model.Country.Code</h3>
+    <h3>Name @Model.Country.Name</h3>
+    <form method="post">
+        <input asp-for="@Model.Country.Code" type="hidden" />
+        <input type="submit" value="Delete" />
+        <a asp-page="CountryIndex">Cancel</a>
+    </form>
+</p>

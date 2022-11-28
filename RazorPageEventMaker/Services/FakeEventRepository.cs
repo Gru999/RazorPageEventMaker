@@ -108,5 +108,10 @@ namespace RazorPageEventMaker.Models {
             }
             return filterList;
         }
+
+        public List<Event> GetAllEventsByCode(string code)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

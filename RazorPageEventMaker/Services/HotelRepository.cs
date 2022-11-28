@@ -38,6 +38,11 @@ namespace RazorPageEventMaker.Models
             _hotels.Add(ho);
         }
 
+        public void DeleteHotel(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Hotel> GetAllHotel()
         {
             return _hotels;

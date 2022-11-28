@@ -8,5 +8,6 @@ namespace RazorPageEventMaker.Interfaces {
         void UpdateEvent(Event ev);
         void DeleteEvent(int id);
         List<Event> FilterEvent(string filter);
+        List<Event> GetAllEventsByCode(string code);
     }
 }

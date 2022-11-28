@@ -19,11 +19,11 @@ namespace RazorPageEventMaker.Services
                 ho.Id = 1;
             }
             hotels.Add(ho);
-            JsonFileWriterHotel.WritetoJson(hotels, JsonFileName);
+            JsonFileWriter.WritetoJsonHotels(hotels, JsonFileName);
         }
 
         public List<Hotel> GetAllHotel() {
-            return JsonFileReaderHotel.ReadJson(JsonFileName);
+            return JsonFileReader.ReadJsonHotels(JsonFileName);
         }
 
         public Hotel GetHotel(int id) {
@@ -46,7 +46,7 @@ namespace RazorPageEventMaker.Services
                         h.Address = ho.Address;
                     }
                 }
-                JsonFileWriterHotel.WritetoJson(hotels, JsonFileName);
+                JsonFileWriter.WritetoJsonHotels(hotels, JsonFileName);
             }
         }
 
@@ -54,7 +54,7 @@ namespace RazorPageEventMaker.Services
             List<Hotel> hotels = GetAllHotel().ToList();
             Hotel deleteHotel = GetHotel(id);
             hotels.Remove(deleteHotel);
-            JsonFileWriterHotel.WritetoJson(hotels, JsonFileName);
+            JsonFileWriter.WritetoJsonHotels(hotels, JsonFileName);
 
         }
     }
